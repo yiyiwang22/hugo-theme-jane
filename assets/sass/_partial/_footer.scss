@@ -1,12 +1,15 @@
-// ==============================
-// Post footer
-// =============================
 
 .site-footer {
-  margin-top: 3rem;
-  background: var(--pico-primary-focus);
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  margin-top: 0;      /* 消除外边距 */
+  padding: 2px 0;    /* 极小的内边距，0有时会显得太挤 */
+  font-size: 0.75rem; /* 缩小文字 */
+  line-height: 1;     /* 紧凑行高 */
+    background: var(--pico-primary-focus);
+  /* 针对内部可能存在的容器 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;   /* 确保没有被其他样式限制最小高度 */
 
   @import "_footer/social";
   @import "_footer/copyright";

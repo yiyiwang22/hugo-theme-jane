@@ -51,17 +51,17 @@
       &:hover {
         background: var(--pico-primary-hover-background);
 
-        .menu-item-link {
-          // color: $theme-color;
-        }
+        // .menu-item-link {
+        //   // color: $theme-color;
+        // }
       }
 
-      .menu-item-link {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 1em;
-      }
+      // .menu-item-link {
+      //   display: flex;
+      //   align-items: center;
+      //   height: 100%;
+      //   padding: 0 1em;
+      // }
 
       .submenu {
         visibility: hidden;

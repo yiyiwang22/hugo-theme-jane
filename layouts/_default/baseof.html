@@ -49,3 +49,27 @@
 </body>
 
 </html>
+<style>
+  /* 1. 让最外层的容器不再居中，而是靠左对齐 */
+  main.pico.container, 
+  .home-container {
+    max-width: 100% !important;   /* 允许容器占满全屏 */
+    margin-left: 0 !important;    /* 强制靠左 */
+    margin-right: auto !important; /* 右侧自动留白 */
+    display: block !important;
+  }
+
+  /* 2. 限制文章内容的宽度，实现你想要的“右侧留白” */
+  .post-content {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    
+    /* --- 关键参数：调整这里来控制文字的宽度 --- */
+    max-width: 900px !important;  /* 比如设为 750px，右边就会空出一大块 */
+    /* 或者是百分比：max-width: 60% !important; */
+    
+    padding-left: 2rem !important; /* 建议留一点左边距，不然贴着屏幕边缘看书很累 */
+    width: 100% !important;        /* 确保在小屏幕下能自动缩放 */
+    text-align: left !important;
+  }
+</style>

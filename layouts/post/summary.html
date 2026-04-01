@@ -69,3 +69,21 @@
   </div>
 
 </section>
+<style>
+  /* 1. 强行拉宽最外层的 container */
+  main.pico.container, 
+  .home-container {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 2. 强行让内容模块左移 */
+  .post-content {
+    margin-left: 0 !important;
+    padding-left: 1rem !important; /* 留 1rem 边距防止贴死，你可以改成 0 */
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+</style>

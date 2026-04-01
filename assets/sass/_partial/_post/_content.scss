@@ -1,4 +1,5 @@
 .post-content {
+  
   // @import "content/highlight";
   @import "_content/image";
 
@@ -28,4 +29,18 @@
 
 .post-content-header:hover .header-link {
   visibility: visible;
+}
+
+/* 找到那个带 container 类的 main 标签并重置它 */
+main.pico.container {
+  max-width: 100% !important;   /* 取消宽度限制 */
+  margin-left: 0 !important;    /* 强制左对齐 */
+  margin-right: 0 !important;   /* 取消右侧自动边距 */
+  padding-left: 2rem;           /* 可选：留一点左边距，不然文字会贴死屏幕边缘 */
+}
+
+/* 顺便把里面的 home-container 也设为全宽 */
+.home-container {
+  max-width: 100% !important;
+  width: 100% !important;
 }
