@@ -98,7 +98,7 @@
   * style(<table>): better <table> style
   * fix(tags): use relURL tags link
   * feat: add submenu support #31
-  * fix undefined .Site.Author.name errors
+  * fix undefined .Site.Params.author.name errors
   * style(post): change the post-footer & post-copyright style
   * style: Increase font size for <code> tag
   * feat: add changelog

@@ -1,6 +1,6 @@
 <!-- author & description & keywords  -->
-{{- if or .Params.author .Site.Params.author.name .Site.Author.name -}}
-{{- $author_id := .Params.author | default .Site.Params.author.name | default .Site.Author.name -}}
+{{- if or .Params.author .Site.Params.author.name .Site.Params.author.name -}}
+{{- $author_id := .Params.author | default .Site.Params.author.name | default .Site.Params.author.name -}}
 {{- $author := (index ($.Site.Data.authors | default dict) $author_id) -}}
 {{- $author_lang := (index ($author | default dict) .Site.Language.Lang) -}}
 {{- $author_name := $author_lang.name.display | default $author.name.display | default $author_id -}}
