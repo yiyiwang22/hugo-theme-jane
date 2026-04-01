@@ -2,12 +2,21 @@
 
 <div class="mobile-header">
   <div id="mobile-navbar" class="mobile-navbar">
-    <div id="mobile-navbar-icon" class="mobile-navbar-icon">
-      {{ partial "icons/icon" (dict
-      "path" "icons/header/menu.svg"
-      "className" "icon--menu"
-      ) }}
+    
+    <div class="mobile-navbar-icon">
+      <a class="theme-toggle menu-item-link" href="javascript:void(0);" style="display: flex; align-items: center;">
+        {{ partial "icons/icon" (dict
+          "path" "icons/header/sun.svg"
+          "className" "theme-icon-light"
+        ) }}
+
+        {{ partial "icons/icon" (dict
+          "path" "icons/header/moon.svg"
+          "className" "theme-icon-dark"
+        ) }}
+      </a>
     </div>
+
     <div class="mobile-navbar-logo">
       <a href="{{ `/` | relLangURL }}" class="logo">
         {{- if .Site.Params.logoTitle -}}
@@ -26,7 +35,6 @@
 
       <li class="mobile-menu-item">
         {{ if .HasChildren }}
-        <!-- drop down navigation MENU -->
         <div class="mobile-menu-parent">
           <span class="mobile-submenu-open"></span>
           <a href="{{ .URL | absLangURL | safeURL }}">
@@ -41,11 +49,9 @@
           {{ end }}
         </ul>
         {{ else }}
-        <!-- normal MENU -->
         {{ if hasPrefix .URL "http" }}
         <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}" rel="noopener" target="_blank">
           {{ .Name }}
-          {{/* icon new window */}}
           {{ partial "icons/icon" (dict
           "path" "icons/header/external-link.svg"
           "className" "icon--external-link"
@@ -56,16 +62,14 @@
         {{ end }}
         {{ end }}
       </li>
-
       {{- end }}
+
       {{ if and (gt (len .Site.Home.AllTranslations) 1) (.Site.Params.showMenuLanguageChooser | default false ) }}
       {{- $.Scratch.Set "language" .Language -}}
       <li class="mobile-menu-item">
-        <!-- drop down navigation MENU -->
         <div class="mobile-menu-parent mobile-menu-item-lang">
           <span class="mobile-submenu-open"></span>
           <a href="#">
-            {{/* icon globe */}}
             {{ partial "icons/icon" (dict
             "path" "icons/header/languages.svg"
             "className" "icon--languages"
@@ -98,36 +102,6 @@
       </li>
       {{ end }}
 
-      <li class="mobile-menu-item">
-        <a class="theme-toggle menu-item-link" href="javascript:void(0);">
-
-          {{ partial "icons/icon" (dict
-          "path" "icons/header/sun.svg"
-          "className" "theme-icon-light"
-          ) }}
-
-          {{ partial "icons/icon" (dict
-          "path" "icons/header/moon.svg"
-          "className" "theme-icon-dark"
-          ) }}
-
-        </a>
-      </li>
-
-      <li class="mobile-menu-item">
-        {{ with .Site.GetPage "home" -}}
-        {{- with .OutputFormats.Get "RSS" -}}
-        <!-- 20250619 -->
-        <!-- <a class="menu-item-link" href="{{ .Permalink }}" rel="noopener {{ .Rel }}" type="{{ .MediaType.Type }}"
-          title="rss" target="_blank">
-          {{ partial "icons/icon" (dict
-          "path" "icons/header/rss.svg"
-          "className" "icon--rss"
-          ) }}
-        </a> -->
-        {{ end -}}
-        {{ end }}
-      </li>
-    </ul>
+      </ul>
   </nav>
 </div>
