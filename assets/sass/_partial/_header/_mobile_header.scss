@@ -7,6 +7,29 @@
     color: #fff;
   }
 
+  // .mobile-navbar {
+  //   width: 100%;
+  //   background: var(--pico-primary-background);
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   font-size: 1.3rem;
+  //   line-height: 1;
+
+  //   .mobile-navbar-icon {
+  //     font-size: 1.5em;
+  //     color: #fff;
+  //     order: 1;
+  //     padding: 0.3em;
+  //   }
+
+  //   .mobile-navbar-logo {
+  //     padding: 0.5em;
+  //     position: absolute;
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //   }
+  // }
   .mobile-navbar {
     width: 100%;
     background: var(--pico-primary-background);
@@ -19,8 +42,22 @@
     .mobile-navbar-icon {
       font-size: 1.5em;
       color: #fff;
-      order: 1;
+      order: 1; // 默认顺序
       padding: 0.3em;
+
+      // --- 新增：隐藏菜单三杠图标 ---
+      &.icon-menu {
+        display: none !important;
+      }
+    }
+
+    // --- 新增：让“月亮/主题切换”按钮出现在最左边 ---
+    // Jane 主题通常使用 .theme-switch 或 .icon-sun/.icon-moon
+    .theme-switch, .icon-sun, .icon-moon {
+      order: -1 !important;  /* 关键：负值会让它排在 Flex 容器的最前面（左侧） */
+      display: block !important;
+      padding: 0.3em;
+      cursor: pointer;
     }
 
     .mobile-navbar-logo {
@@ -28,6 +65,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      /* 这里的 absolute 定位确保 Logo 依然居中，不受月亮图标的影响 */
     }
   }
 }
